@@ -1561,6 +1561,19 @@ class Doc(DataObject):
         print(f'Use of @relative_media_url.setter is deprecated as there may be more than one in a general ELAN file.') #  JMG added this
         self._xml_media_node.set('RELATIVE_MEDIA_URL', value)
 
+    @property
+    def time_origin(self):
+        # TODO JMG: Generalize this to allow for multiple media descriptors
+        print(f'Use of @property time_origin is deprecated as there may be more than one in a general ELAN file.') #  JMG added this
+        return self._xml_media_node.get('TIME_ORIGIN')
+
+    @time_origin.setter
+    def time_origin(self, value):
+        # TODO: what if __xml_header_node is None?
+        # TODO JMG: Generalize this to allow for multiple media descriptors
+        print(f'Use of @time_origin.setter is deprecated as there may be more than one in a general ELAN file.') #  JMG added this
+        self._xml_media_node.set('TIME_ORIGIN', value)
+
     def _update_header_xml(self, node):
         """ [Internal function] Read ELAN doc information from a HEADER XML node
 
@@ -1849,6 +1862,7 @@ class Doc(DataObject):
     def create(cls, media_file='audio.wav',
                media_url=None,
                relative_media_url=None,
+               time_origin=0,
                author="",
                *args, **kwargs):
         """ Create a new blank ELAN doc
@@ -1869,6 +1883,7 @@ class Doc(DataObject):
             eaf.media_file = media_file
             eaf.media_url = media_url
             eaf.relative_media_url = relative_media_url
+            eaf.time_origin = time_origin
         eaf.date = datetime.now()
         if author:
             eaf.author = author
