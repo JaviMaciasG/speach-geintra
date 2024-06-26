@@ -1524,29 +1524,41 @@ class Doc(DataObject):
 
     @property
     def media_url(self):
+        # TODO JMG: Generalize this to allow for multiple media descriptors
+        print(f'Use of @property media_url is deprecated as there may be more than one in a general ELAN file.') #  JMG added this
         return self._xml_media_node.get('MEDIA_URL')
 
     @media_url.setter
     def media_url(self, value):
         # TODO: what if __xml_header_node is None?
+        # TODO JMG: Generalize this to allow for multiple media descriptors
+        print(f'Use of @media_url.setter is deprecated as there may be more than one in a general ELAN file.') #  JMG added this
         self._xml_media_node.set('MEDIA_URL', value)
 
     @property
     def mime_type(self):
+        # TODO JMG: Generalize this to allow for multiple media descriptors
+        print(f'Use of @property mime_type is deprecated as there may be more than one in a general ELAN file.') #  JMG added this
         return self._xml_media_node.get('MIME_TYPE')
 
     @mime_type.setter
     def mime_type(self, value):
         # TODO: what if __xml_header_node is None?
+        # TODO JMG: Generalize this to allow for multiple media descriptors
+        print(f'Use of @media_type.setter is deprecated as there may be more than one in a general ELAN file.') #  JMG added this
         self._xml_media_node.set('MIME_TYPE', value)
 
     @property
     def relative_media_url(self):
+        # TODO JMG: Generalize this to allow for multiple media descriptors
+        print(f'Use of @property relative_media_url is deprecated as there may be more than one in a general ELAN file.') #  JMG added this
         return self._xml_media_node.get('RELATIVE_MEDIA_URL')
 
     @relative_media_url.setter
     def relative_media_url(self, value):
         # TODO: what if __xml_header_node is None?
+        # TODO JMG: Generalize this to allow for multiple media descriptors
+        print(f'Use of @relative_media_url.setter is deprecated as there may be more than one in a general ELAN file.') #  JMG added this
         self._xml_media_node.set('RELATIVE_MEDIA_URL', value)
 
     def _update_header_xml(self, node):
